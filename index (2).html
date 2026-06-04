@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Raíces · Hayacas & Masato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+.ms {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+  flex-shrink: 0;
+}
+</style>
+<style>
+:root {
+  --verde-selva: #1E4D0F;
+  --verde-hoja: #3B6D11;
+  --verde-medio: #5A8A1C;
+  --verde-claro: #EAF3DE;
+  --terracota: #C0501A;
+  --terracota-claro: #E8845A;
+  --maiz: #BA7517;
+  --maiz-claro: #FAEEDA;
+  --crema: #F9F4EC;
+  --cafe: #4A2C0A;
+  --blanco: #FEFCF8;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--blanco);
+  color: var(--cafe);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: rgba(254,252,248,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(90,138,28,0.12);
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(30,77,15,0.1); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-leaf {
+  width: 36px; height: 36px;
+  background: var(--verde-hoja);
+  border-radius: 50% 50% 50% 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-leaf svg { width: 20px; height: 20px; }
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--verde-selva);
+  letter-spacing: -0.5px;
+}
+.nav-logo-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  display: block;
+  margin-top: -3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--verde-selva);
+  text-decoration: none;
+  letter-spacing: .04em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--terracota); }
+
+.nav-cta {
+  background: var(--terracota);
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 13px !important;
+  transition: background .2s, transform .15s !important;
+}
+.nav-cta:hover { background: var(--verde-hoja) !important; transform: scale(1.04); }
+
+.nav-burger { display: none; cursor: pointer; padding: 4px; border-radius: 8px; transition: background .2s; }
+.nav-burger:hover { background: var(--verde-claro); }
+.nav-burger span { pointer-events: none; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+}
+
+.hero-left {
+  background: var(--crema);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem 5rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(90,138,28,.07);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp .6s .2s forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 28px; height: 1.5px;
+  background: var(--terracota);
+}
+
+.hero-brand {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 8vw, 96px);
+  font-weight: 900;
+  color: var(--verde-selva);
+  line-height: .9;
+  letter-spacing: -2px;
+  margin-bottom: .5rem;
+  opacity: 0;
+  animation: fadeUp .7s .3s forwards;
+}
+.hero-brand span { color: var(--terracota); }
+
+.hero-tagline-sub {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--verde-medio);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp .7s .4s forwards;
+}
+
+.hero-slogan {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2vw, 21px);
+  font-style: italic;
+  color: var(--cafe);
+  line-height: 1.55;
+  border-left: 3px solid var(--terracota);
+  padding-left: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 400px;
+  opacity: 0;
+  animation: fadeUp .7s .5s forwards;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .7s .6s forwards;
+}
+.btn-primary {
+  background: var(--terracota);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: var(--verde-selva); transform: translateY(-2px); }
+.btn-secondary {
+  border: 1.5px solid var(--verde-hoja);
+  color: var(--verde-selva);
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-secondary:hover { background: var(--verde-hoja); color: #fff; }
+
+.hero-right {
+  position: relative;
+  background: var(--verde-selva);
+  overflow: hidden;
+}
+.hero-right-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(90,138,28,.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(192,80,26,.25) 0%, transparent 60%),
+    var(--verde-selva);
+}
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,.02) 20px,
+    rgba(255,255,255,.02) 21px
+  );
+}
+.hero-content-right {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 3rem;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-logo-large {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn .8s .4s forwards;
+}
+.hero-logo-large svg { width: 120px; height: 120px; }
+
+.hero-quote {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-style: italic;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .8s .5s forwards;
+}
+.hero-quote em { color: var(--maiz); font-style: normal; }
+
+.hero-divider {
+  width: 60px; height: 2px;
+  background: var(--terracota);
+  margin: 0 auto 1.5rem;
+  opacity: 0;
+  animation: fadeIn .8s .6s forwards;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.65;
+  max-width: 320px;
+  opacity: 0;
+  animation: fadeUp .8s .65s forwards;
+}
+
+/* ── PRODUCTOS ── */
+#productos {
+  padding: 7rem 5rem;
+  background: var(--blanco);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.section-eyebrow::before, .section-eyebrow::after {
+  content: '';
+  width: 32px; height: 1.5px;
+  background: var(--terracota);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--verde-selva);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.section-desc {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--cafe);
+  opacity: .75;
+  max-width: 480px;
+  margin: 1rem auto 0;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.producto-card {
+  background: var(--crema);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+  cursor: pointer;
+  border: 1px solid rgba(90,138,28,.1);
+}
+.producto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(30,77,15,.16);
+}
+
+/* Header coloreado con tipo y nombre */
+.producto-header {
+  padding: 1.2rem 1.4rem .9rem;
+}
+.producto-header.hayaca { background: var(--verde-selva); }
+.producto-header.masato { background: var(--maiz); }
+.producto-header.combo  { background: var(--terracota); }
+
+.producto-tipo {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  margin-bottom: .25rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.producto-estrella { color: #FFD966; }
+.producto-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+
+/* Galería de 3 fotos recortadas del sprite */
+.producto-gallery {
+  display: grid;
+  grid-template-rows: 180px 140px 120px;
+  gap: 3px;
+  background: #d4c9b8;
+}
+.producto-photo {
+  overflow: hidden;
+  position: relative;
+}
+.producto-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform .5s ease;
+}
+.producto-card:hover .producto-photo img {
+  transform: scale(1.04);
+}
+
+/* Cuerpo */
+.producto-body {
+  padding: 1.25rem 1.4rem 1.4rem;
+}
+.producto-desc {
+  font-size: 13.5px;
+  color: var(--cafe);
+  opacity: .78;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+.producto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.producto-tag {
+  background: var(--verde-claro);
+  color: var(--verde-selva);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.producto-tag.amber {
+  background: var(--maiz-claro);
+  color: #633806;
+}
+.producto-tag.terra {
+  background: #FAEADA;
+  color: #7A2B0A;
+}
+
+/* ── RESEÑA ── */
+#resena {
+  background: var(--verde-selva);
+  padding: 7rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+#resena::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(90,138,28,.15);
+}
+#resena::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 10%;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(192,80,26,.12);
+}
+
+.resena-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.resena-left .section-eyebrow { justify-content: flex-start; color: var(--maiz); }
+.resena-left .section-eyebrow::before, .resena-left .section-eyebrow::after { background: var(--maiz); }
+.resena-left .section-title { color: #fff; }
+
+.resena-texto {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.resena-parrafo {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,.82);
+  line-height: 1.8;
+}
+.resena-parrafo strong { color: #fff; font-weight: 600; }
+
+.resena-firma {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.firma-icon {
+  width: 48px; height: 48px;
+  background: var(--terracota);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.firma-text { font-family: var(--font-display); font-style: italic; color: #fff; font-size: 18px; }
+.firma-sub { font-size: 12px; color: rgba(255,255,255,.5); letter-spacing: .1em; text-transform: uppercase; }
+
+.resena-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.stat-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background .2s;
+}
+.stat-card:hover { background: rgba(255,255,255,.1); }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--maiz);
+  line-height: 1;
+  margin-bottom: .3rem;
+}
+.stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  letter-spacing: .06em;
+}
+.stat-icon { font-size: 28px; margin-bottom: .5rem; }
+
+/* ── AUDIENCIA ── */
+#audiencia {
+  padding: 7rem 5rem;
+  background: var(--crema);
+}
+.audiencia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.audiencia-card {
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1.5px solid transparent;
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+}
+.audiencia-card:hover {
+  border-color: var(--verde-hoja);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30,77,15,.1);
+}
+.audiencia-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--verde-claro);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 26px;
+}
+.audiencia-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--verde-selva);
+  margin-bottom: .6rem;
+}
+.audiencia-desc {
+  font-size: 13px;
+  color: var(--cafe);
+  opacity: .7;
+  line-height: 1.6;
+}
+
+/* ── ESLOGAN BAND ── */
+#eslogan-band {
+  background: var(--terracota);
+  padding: 5rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#eslogan-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent, transparent 20px,
+    rgba(255,255,255,.03) 20px, rgba(255,255,255,.03) 21px
+  );
+}
+.eslogan-main {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 900;
+  color: #fff;
+  font-style: italic;
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+.eslogan-main em { color: var(--maiz-claro); font-style: normal; }
+.eslogan-sub-band {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── EMPAQUE ── */
+#empaque {
+  padding: 7rem 5rem;
+  background: var(--blanco);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.empaque-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.empaque-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid rgba(90,138,28,.15);
+  transition: transform .3s;
+}
+.empaque-card:hover { transform: translateY(-5px); }
+.empaque-header {
+  padding: 2.5rem 2rem;
+  position: relative;
+}
+.empaque-header.hayaca { background: var(--verde-selva); }
+.empaque-header.masato { background: var(--maiz); }
+.empaque-header.combo { background: var(--terracota); }
+.empaque-tipo {
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: .4rem;
+}
+.empaque-nombre {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+.empaque-body {
+  padding: 1.5rem;
+  background: var(--crema);
+}
+.empaque-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(74,44,10,.08);
+  font-size: 13px;
+  color: var(--cafe);
+  line-height: 1.5;
+}
+.empaque-feature:last-child { border-bottom: none; }
+.empaque-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.dot-verde { background: var(--verde-hoja); }
+.dot-amber { background: var(--maiz); }
+.dot-terra { background: var(--terracota); }
+
+/* Imagen previa en cada empaque-card */
+.empaque-img-wrap {
+  overflow: hidden;
+  height: 220px;
+  background: #e8e0d4;
+  position: relative;
+}
+.empaque-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .5s ease;
+}
+.empaque-card:hover .empaque-img-wrap img {
+  transform: scale(1.05);
+}
+
+/* ── LANZAMIENTO ── */
+#lanzamiento {
+  padding: 7rem 5rem;
+  background: var(--crema);
+}
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--verde-hoja), var(--maiz), var(--terracota));
+}
+.tl-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+.tl-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.tl-dot.fase1 { background: var(--verde-hoja); }
+.tl-dot.fase2 { background: var(--verde-selva); }
+.tl-dot.fase3 { background: var(--maiz); }
+.tl-dot.fase4 { background: var(--terracota); }
+
+.tl-content {
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 1.5rem;
+  flex: 1;
+  border: 1px solid rgba(90,138,28,.1);
+}
+.tl-semana {
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: .4rem;
+}
+.tl-fase {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--verde-selva);
+  margin-bottom: .8rem;
+}
+.tl-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.tl-step {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cafe);
+  opacity: .82;
+  line-height: 1.5;
+  align-items: flex-start;
+}
+.tl-step::before {
+  content: 'chevron_right';
+  font-family: 'Material Symbols Rounded';
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+  font-size: 18px;
+  color: var(--verde-hoja);
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0px;
+}
+
+/* ── REDES ── */
+#redes {
+  padding: 7rem 5rem;
+  background: var(--verde-selva);
+  position: relative;
+  overflow: hidden;
+}
+.redes-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+.redes-inner .section-eyebrow { color: var(--maiz); justify-content: flex-start; }
+.redes-inner .section-eyebrow::before, .redes-inner .section-eyebrow::after { background: var(--maiz); }
+.redes-inner .section-title { color: #fff; }
+.redes-inner .section-desc { color: rgba(255,255,255,.65); font-style: normal; text-align: left; margin: 1rem 0 0; }
+
+.redes-contenidos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.redes-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 1.2rem;
+  transition: background .2s;
+}
+.redes-item:hover { background: rgba(255,255,255,.1); }
+.redes-num {
+  width: 36px; height: 36px;
+  background: var(--terracota);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.redes-item-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: .3rem;
+  font-size: 14px;
+}
+.redes-item-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.55;
+}
+
+.hashtags-wrap {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hashtag {
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.8);
+  border: 1px solid rgba(255,255,255,.12);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  transition: background .2s;
+}
+.hashtag:hover { background: rgba(255,255,255,.15); }
+
+/* ── PERFIL INSTA MOCKUP ── */
+.insta-card {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+.insta-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(74,44,10,.1);
+}
+.insta-avatar {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--verde-claro);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  border: 3px solid var(--verde-hoja);
+}
+.insta-name { font-weight: 600; font-size: 15px; color: var(--cafe); }
+.insta-handle { font-size: 13px; color: var(--terracota); }
+.insta-bio {
+  font-size: 13px;
+  color: var(--cafe);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+.insta-link {
+  display: inline-block;
+  background: var(--verde-selva);
+  color: #fff;
+  font-size: 12px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+.insta-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .5rem;
+  text-align: center;
+}
+.insta-stat-num { font-weight: 600; font-size: 16px; color: var(--verde-selva); display: block; }
+.insta-stat-label { font-size: 11px; color: var(--cafe); opacity: .6; }
+
+/* ── CONTACTO ── */
+#contacto {
+  padding: 7rem 5rem;
+  background: var(--blanco);
+  text-align: center;
+}
+.contacto-inner { max-width: 600px; margin: 0 auto; }
+.contacto-form {
+  background: var(--crema);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--verde-selva);
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(90,138,28,.2);
+  border-radius: 12px;
+  background: var(--blanco);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--cafe);
+  outline: none;
+  transition: border-color .2s;
+}
+.form-input:focus, .form-textarea:focus { border-color: var(--verde-hoja); }
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-btn {
+  width: 100%;
+  background: var(--terracota);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.form-btn:hover { background: var(--verde-selva); transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--cafe);
+  padding: 3rem 5rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+}
+.footer-logo span { color: var(--terracota); }
+.footer-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: rgba(255,255,255,.5);
+  margin: .4rem 0 1.5rem;
+  font-size: 14px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.footer-social a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background .2s;
+}
+.footer-social a:hover { background: var(--terracota); }
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .06em;
+}
+
+/* ── LOGO SIGNIFICADO ── */
+#logo-significado {
+  padding: 7rem 5rem;
+  background: var(--blanco);
+  overflow: hidden;
+}
+.logo-sig-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.logo-sig-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.logo-sig-circle {
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: var(--verde-selva);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(30,77,15,.25);
+}
+.logo-sig-circle::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(90,138,28,.3);
+}
+.logo-sig-circle::after {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  border: 1px dashed rgba(90,138,28,.15);
+}
+.logo-sig-name {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--verde-selva);
+  letter-spacing: -1px;
+  text-align: center;
+}
+.logo-sig-name span { color: var(--terracota); }
+.logo-sig-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--verde-medio);
+  text-align: center;
+}
+
+.logo-sig-elementos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.logo-elemento {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: var(--crema);
+  border: 1px solid transparent;
+  transition: border-color .3s, box-shadow .3s, transform .3s;
+}
+.logo-elemento:hover {
+  border-color: var(--verde-hoja);
+  box-shadow: 0 8px 32px rgba(30,77,15,.1);
+  transform: translateX(6px);
+}
+.logo-elemento-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.le-verde   { background: var(--verde-selva); }
+.le-medio   { background: var(--verde-hoja); }
+.le-terra   { background: var(--terracota); }
+.le-maiz    { background: var(--maiz); }
+.le-crema   { background: var(--cafe); }
+.logo-elemento-body {}
+.logo-elemento-titulo {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--verde-selva);
+  margin-bottom: .3rem;
+}
+.logo-elemento-desc {
+  font-size: 13.5px;
+  color: var(--cafe);
+  opacity: .78;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .logo-sig-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .logo-sig-circle { width: 200px; height: 200px; }
+  #logo-significado { padding: 4rem 1.5rem; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 50vh; }
+  .hero-left { padding: 3rem 2rem; }
+  #productos, #resena, #audiencia, #eslogan-band,
+  #empaque, #lanzamiento, #redes, #contacto, footer { padding: 4rem 1.5rem; }
+  .resena-inner, .redes-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: var(--blanco);
+    padding: 2rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(90,138,28,.1);
+    z-index: 99;
+  }
+  .nav-burger { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-leaf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C6 2 3 7 3 12c0 3 1.5 5.5 4 7l5 3 5-3c2.5-1.5 4-4 4-7 0-5-3-10-9-10z"/>
+        <line x1="12" y1="22" x2="12" y2="10"/>
+      </svg>
+    </div>
+    <div>
+      <span class="nav-logo-text">Raíces</span>
+      <span class="nav-logo-sub">Hayacas & Masato</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#resena">Nuestra historia</a></li>
+    <li><a href="#logo-significado">Nuestro logo</a></li>
+    <li><a href="#empaque">Empaque</a></li>
+    <li><a href="#lanzamiento">Lanzamiento</a></li>
+    <li><a href="#redes">Redes</a></li>
+    <li><a href="#contacto" class="nav-cta">Hacer pedido</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleNav()" aria-label="Menú">
+    <span class="ms" style="font-size:26px;color:var(--verde-selva)" id="burgerIcon">menu</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Colombia · Artesanal · Auténtico</div>
+    <h1 class="hero-brand">RAÍ<span>CES</span></h1>
+    <div class="hero-tagline-sub">Hayacas &amp; Masato</div>
+    <p class="hero-slogan">"Sabor que hereda, tradición que une."</p>
+    <div class="hero-btns">
+      <a href="#productos" class="btn-primary">Ver productos <span class="ms" style="font-size:18px">arrow_forward</span></a>
+      <a href="#resena" class="btn-secondary"><span class="ms" style="font-size:18px">menu_book</span> Nuestra historia</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content-right">
+      <div class="hero-logo-large">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="60" rx="54" ry="54" fill="rgba(255,255,255,0.07)"/>
+          <path d="M60 22 C42 30 32 46 34 64 C36 80 50 92 60 94 C70 92 84 80 86 64 C88 46 78 30 60 22Z" fill="#5A8A1C" opacity="0.6"/>
+          <path d="M60 28 C45 36 38 50 40 64 C42 76 54 88 60 90 C66 88 78 76 80 64 C82 50 75 36 60 28Z" fill="#97C459" opacity="0.75"/>
+          <path d="M60 34 Q54 52 56 72 Q58 86 60 90 Q62 86 64 72 Q66 52 60 34Z" fill="#fff" opacity="0.9"/>
+          <line x1="46" y1="58" x2="74" y2="58" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <line x1="43" y1="66" x2="77" y2="66" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <line x1="47" y1="50" x2="73" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <p class="hero-quote">Tradición que se siente,<br><em>sabor que nos une.</em></p>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">Elaboradas a mano con recetas ancestrales colombianas. Cada bocado lleva historia, familia y cultura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Lo que ofrecemos</div>
+    <h2 class="section-title">Nuestros productos</h2>
+    <p class="section-desc">Hechos con ingredientes locales, envueltos en hoja de bijao y preparados con el cariño de siempre.</p>
+  </div>
+  <div class="productos-grid">
+
+    <!-- HAYACA -->
+    <div class="producto-card reveal">
+      <div class="producto-header hayaca">
+        <div class="producto-tipo">Producto principal</div>
+        <div class="producto-name">Hayaca Artesanal</div>
+      </div>
+      <div class="producto-gallery">
+        <div class="producto-photo">
+          <!-- foto 1: caja kraft, zona superior de hayaca.png (~20%–44% de alto) -->
+          <img src="hayaca.png"
+               alt="Caja kraft con ventana y etiqueta verde Raíces"
+               style="object-position: center 29%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 2: hayaca en hoja, zona media (~47%–70%) -->
+          <img src="hayaca.png"
+               alt="Hayaca envuelta en hoja de bijao sobre tejido natural"
+               style="object-position: center 57%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 3: etiqueta verde, zona inferior (~73%–97%) -->
+          <img src="hayaca.png"
+               alt="Tarjeta verde: Hayaca Artesanal, sin conservantes, hecho a mano"
+               style="object-position: center 86%"/>
+        </div>
+      </div>
+      <div class="producto-body">
+        <p class="producto-desc">Masa de maíz rellena con guiso de res o pollo, envuelta en hoja de bijao y cocida a fuego lento. La tradición en cada amarre.</p>
+        <div class="producto-tags">
+          <span class="producto-tag">Sin conservantes</span>
+          <span class="producto-tag">Hecha a mano</span>
+          <span class="producto-tag">Hoja de bijao</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MASATO -->
+    <div class="producto-card reveal">
+      <div class="producto-header masato">
+        <div class="producto-tipo">Bebida artesanal</div>
+        <div class="producto-name">Masato 500ml</div>
+      </div>
+      <div class="producto-gallery">
+        <div class="producto-photo">
+          <!-- foto 1: botella completa con cuencos (~20%–44%) -->
+          <img src="masato.png"
+               alt="Botella de vidrio oscuro de masato artesanal con cuenco de arroz"
+               style="object-position: center 29%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 2: etiqueta frontal Masato artesanal de arroz 500ml (~47%–70%) -->
+          <img src="masato.png"
+               alt="Etiqueta frontal de papel texturizado: Masato artesanal de arroz 500ml"
+               style="object-position: center 57%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 3: etiqueta trasera con ingredientes (~73%–97%) -->
+          <img src="masato.png"
+               alt="Reverso etiqueta: fermentado naturalmente, sin alcohol añadido, hecho a mano en Colombia"
+               style="object-position: center 86%"/>
+        </div>
+      </div>
+      <div class="producto-body">
+        <p class="producto-desc">Bebida fermentada naturalmente, dulce y refrescante. Preparada con arroz, piña de fique y panela. Sin alcohol añadido. Hecha a mano en Colombia.</p>
+        <div class="producto-tags">
+          <span class="producto-tag amber">Fermentado natural</span>
+          <span class="producto-tag amber">Sin aditivos</span>
+          <span class="producto-tag amber">Servir frío</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMBO -->
+    <div class="producto-card reveal">
+      <div class="producto-header combo">
+        <div class="producto-tipo">Kit regalo <span class="producto-estrella">★</span></div>
+        <div class="producto-name">Combo Raíces</div>
+      </div>
+      <div class="producto-gallery">
+        <div class="producto-photo">
+          <!-- foto 1: caja verde abierta con masato y hayaca (~20%–44%) -->
+          <img src="combo.png"
+               alt="Caja verde abierta con botella masato y hayaca sobre viruta natural"
+               style="object-position: center 29%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 2: kit sobre mesa con frase raíces que nutren tradiciones (~47%–70%) -->
+          <img src="combo.png"
+               alt="Kit Raíces que nutren tradiciones: masato, hayaca y cuenco de arroz"
+               style="object-position: center 57%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 3: etiqueta kraft gracias por apoyar lo nuestro (~73%–97%) -->
+          <img src="combo.png"
+               alt="Etiqueta kraft: Gracias por apoyar lo nuestro, hecho a mano en Colombia"
+               style="object-position: center 86%"/>
+        </div>
+      </div>
+      <div class="producto-body">
+        <p class="producto-desc">2 hayacas + 1 botella de masato en caja verde de regalo. La experiencia Raíces completa, perfecta para compartir, ferias y ocasiones especiales.</p>
+        <div class="producto-tags">
+          <span class="producto-tag terra">Caja regalo</span>
+          <span class="producto-tag terra">Ideal para ferias</span>
+          <span class="producto-tag terra">Tarjeta de origen</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEÑA -->
+<section id="resena">
+  <div class="resena-inner">
+    <div class="resena-left reveal">
+      <div class="section-eyebrow">Quiénes somos</div>
+      <h2 class="section-title">Reseña<br>empresarial</h2>
+      <div class="resena-texto">
+        <p class="resena-parrafo"><strong>Raíces</strong> nace del amor por lo nuestro: las hayacas y el masato, dos íconos de la tradición colombiana.</p>
+        <p class="resena-parrafo">Somos una marca que rescata recetas ancestrales y las presenta de forma fresca y auténtica, manteniendo vivo el legado de nuestras abuelas, pero con una mirada contemporánea que conecta con las nuevas generaciones.</p>
+        <p class="resena-parrafo">Cada hayaca y cada vaso de masato llevan más que ingredientes: llevan historia, familia y cultura. Raíces es tradición que se comparte, sabor que permanece.</p>
+      </div>
+      <div class="resena-firma">
+        <div class="firma-icon"><span class="ms" style="font-size:22px;color:#fff">eco</span></div>
+        <div>
+          <div class="firma-text">Raíces · Cocina viva</div>
+          <div class="firma-sub">Colombia · Hecho con amor</div>
+        </div>
+      </div>
+    </div>
+    <div class="resena-stats reveal">
+      <div class="stat-card">
+        <div class="stat-icon"><span class="ms" style="font-size:30px;color:var(--maiz)">eco</span></div>
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-label">% artesanal</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><span class="ms" style="font-size:30px;color:var(--maiz)">do_not_disturb_on</span></div>
+        <div class="stat-num" data-target="0">0</div>
+        <div class="stat-label" style="color:rgba(255,255,255,.65)">conservantes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><span class="ms" style="font-size:30px;color:var(--maiz)">restaurant</span></div>
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">generaciones de receta</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><span class="ms" style="font-size:30px;color:var(--maiz)">favorite</span></div>
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-label">% colombiano</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO SIGNIFICADO -->
+<section id="logo-significado">
+  <div class="logo-sig-inner">
+
+    <!-- Visual izquierdo -->
+    <div class="logo-sig-visual reveal">
+      <div class="logo-sig-circle">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" width="180" height="180">
+          <!-- Hoja exterior izquierda (estilo vasija) -->
+          <ellipse cx="66" cy="90" rx="28" ry="44" fill="#5A8A1C" opacity="0.55" transform="rotate(-18 66 90)"/>
+          <!-- Hoja exterior derecha -->
+          <ellipse cx="114" cy="90" rx="28" ry="44" fill="#5A8A1C" opacity="0.55" transform="rotate(18 114 90)"/>
+          <!-- Vasija terracota -->
+          <path d="M74 70 Q68 78 68 95 Q68 118 90 124 Q112 118 112 95 Q112 78 106 70 Z" fill="#C0501A" opacity="0.85"/>
+          <ellipse cx="90" cy="70" rx="16" ry="6" fill="#C0501A" opacity="0.7"/>
+          <ellipse cx="90" cy="68" rx="10" ry="4" fill="#E8845A" opacity="0.6"/>
+          <!-- Hoja central vena -->
+          <path d="M90 52 C78 62 74 76 76 92 C78 106 86 116 90 120 C94 116 102 106 104 92 C106 76 102 62 90 52Z" fill="#97C459" opacity="0.8"/>
+          <line x1="90" y1="120" x2="90" y2="58" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+          <line x1="80" y1="82" x2="100" y2="82" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <line x1="78" y1="92" x2="102" y2="92" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <line x1="80" y1="102" x2="100" y2="102" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <!-- Puntos decorativos -->
+          <circle cx="56" cy="58" r="3" fill="#BA7517" opacity="0.7"/>
+          <circle cx="124" cy="58" r="3" fill="#BA7517" opacity="0.7"/>
+          <circle cx="50" cy="110" r="2" fill="#97C459" opacity="0.5"/>
+          <circle cx="130" cy="110" r="2" fill="#97C459" opacity="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-sig-name">RAÍ<span>CES</span></div>
+        <div class="logo-sig-sub">Hayacas &amp; Masato · Colombia</div>
+      </div>
+    </div>
+
+    <!-- Elementos de significado -->
+    <div class="logo-sig-elementos">
+      <div class="section-eyebrow reveal" style="justify-content:flex-start">Identidad visual</div>
+      <h2 class="section-title reveal" style="font-size:clamp(28px,3.5vw,42px)">El significado<br>de nuestro logo</h2>
+
+      <div class="logo-elemento reveal">
+        <div class="logo-elemento-icon le-verde">
+          <span class="ms" style="font-size:24px;color:#fff">eco</span>
+        </div>
+        <div class="logo-elemento-body">
+          <div class="logo-elemento-titulo">La hoja de bijao</div>
+          <div class="logo-elemento-desc">El elemento central del logo. La hoja de bijao es el corazón de la hayaca — sin ella no existe el producto. Representa la naturaleza, el origen y el proceso artesanal que nos define.</div>
+        </div>
+      </div>
+
+      <div class="logo-elemento reveal">
+        <div class="logo-elemento-icon le-terra">
+          <span class="ms" style="font-size:24px;color:#fff">water_drop</span>
+        </div>
+        <div class="logo-elemento-body">
+          <div class="logo-elemento-titulo">La vasija de barro</div>
+          <div class="logo-elemento-desc">Símbolo de las comunidades indígenas colombianas. La vasija evoca la fermentación ancestral del masato y la cocina tradicional que se transmite de generación en generación.</div>
+        </div>
+      </div>
+
+      <div class="logo-elemento reveal">
+        <div class="logo-elemento-icon le-medio">
+          <span class="ms" style="font-size:24px;color:#fff">forest</span>
+        </div>
+        <div class="logo-elemento-body">
+          <div class="logo-elemento-titulo">El verde profundo</div>
+          <div class="logo-elemento-desc">El color principal del logo es el verde selva — el mismo de los montes, los cultivos y las hojas frescas del campo colombiano. Transmite autenticidad, vida y conexión con la tierra.</div>
+        </div>
+      </div>
+
+      <div class="logo-elemento reveal">
+        <div class="logo-elemento-icon le-terra">
+          <span class="ms" style="font-size:24px;color:#fff">local_fire_department</span>
+        </div>
+        <div class="logo-elemento-body">
+          <div class="logo-elemento-titulo">El terracota</div>
+          <div class="logo-elemento-desc">El color de acento representa el barro cocido, el fogón y el calor del hogar. Es el color de la tradición hecha a fuego lento — exactamente como nuestras hayacas.</div>
+        </div>
+      </div>
+
+      <div class="logo-elemento reveal">
+        <div class="logo-elemento-icon le-crema">
+          <span class="ms" style="font-size:24px;color:#fff">font_download</span>
+        </div>
+        <div class="logo-elemento-body">
+          <div class="logo-elemento-titulo">La tipografía</div>
+          <div class="logo-elemento-desc">"Raíces" escrito en letra serif fuerte y contemporánea. Las mayúsculas transmiten confianza y permanencia; la palabra misma es el mensaje: venimos de algo sólido y genuino.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCIA -->
+<section id="audiencia">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Cómo conectamos</div>
+    <h2 class="section-title">Con nuestra audiencia</h2>
+  </div>
+  <div class="audiencia-grid">
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">auto_stories</span></div>
+      <div class="audiencia-title">Contamos nuestras raíces</div>
+      <p class="audiencia-desc">Compartimos historias sobre el origen de las hayacas y el masato, destacando su valor cultural y familiar.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">phone_iphone</span></div>
+      <div class="audiencia-title">Presencia digital auténtica</div>
+      <p class="audiencia-desc">Contenido fresco y cercano en redes, mostrando el proceso, la tradición y los momentos que se viven.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">groups</span></div>
+      <div class="audiencia-title">Experiencias locales</div>
+      <p class="audiencia-desc">Participamos en ferias, eventos y festivales para que más personas vivan la experiencia Raíces en comunidad.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">park</span></div>
+      <div class="audiencia-title">Sostenibilidad y orgullo</div>
+      <p class="audiencia-desc">Ingredientes locales y empaques amigables con el medio ambiente, aportando al desarrollo de nuestra comunidad.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">handshake</span></div>
+      <div class="audiencia-title">Cercanía y calidez</div>
+      <p class="audiencia-desc">Atendemos con calidez y construimos relaciones reales, porque para nosotros cada cliente es parte de la familia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESLOGAN BAND -->
+<section id="eslogan-band">
+  <p class="eslogan-main reveal">"Hecho como en <em>casa.</em>"</p>
+  <p class="eslogan-sub-band reveal">Lo nuestro nos une · @raices.hayacasymasato</p>
+</section>
+
+<!-- EMPAQUE -->
+<section id="empaque">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Presentación</div>
+    <h2 class="section-title">Diseño de empaque</h2>
+    <p class="section-desc">Cada detalle comunica artesanía, origen y cuidado — antes de que el cliente pruebe el producto.</p>
+  </div>
+  <div class="empaque-grid">
+    <div class="empaque-card reveal">
+      <div class="empaque-header hayaca">
+        <div class="empaque-tipo">Producto principal</div>
+        <div class="empaque-nombre">Hayaca Artesanal</div>
+      </div>
+      <div class="empaque-img-wrap">
+        <img src="empaque_hayaca.png" alt="Empaque Hayaca Artesanal Raíces"/>
+      </div>
+      <div class="empaque-body">
+        <div class="empaque-feature"><div class="empaque-dot dot-verde"></div>Bolsa kraft o caja reciclada con ventana transparente</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-verde"></div>Atada con pita de fique — detalle artesanal visible</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-verde"></div>Frente: logo Raíces centrado + peso neto</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-verde"></div>Reverso: historia corta + instrucciones de calentamiento</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-verde"></div>Etiqueta: "Sin conservantes · Hecho a mano · Colombia"</div>
+      </div>
+    </div>
+    <div class="empaque-card reveal">
+      <div class="empaque-header masato">
+        <div class="empaque-tipo">Bebida artesanal</div>
+        <div class="empaque-nombre">Masato 500ml</div>
+      </div>
+      <div class="empaque-img-wrap">
+        <img src="empaque_masato.png" alt="Empaque Masato 500ml Raíces"/>
+      </div>
+      <div class="empaque-body">
+        <div class="empaque-feature"><div class="empaque-dot dot-amber"></div>Botella de vidrio oscuro 500ml con tapa metálica</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-amber"></div>Etiqueta de papel texturizado pegada a mano</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-amber"></div>Frontal: símbolo de hoja + "Masato artesanal de arroz"</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-amber"></div>Trasera: "Fermentado naturalmente · Sin alcohol añadido"</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-amber"></div>Collarín: fecha de elaboración escrita a mano</div>
+      </div>
+    </div>
+    <div class="empaque-card reveal">
+      <div class="empaque-header combo">
+        <div class="empaque-tipo">Kit regalo ⭐</div>
+        <div class="empaque-nombre">Combo Raíces</div>
+      </div>
+      <div class="empaque-img-wrap">
+        <img src="empaque_combo.png" alt="Empaque Combo Raíces Kit Regalo"/>
+      </div>
+      <div class="empaque-body">
+        <div class="empaque-feature"><div class="empaque-dot dot-terra"></div>Caja de madera balsa o cartón rígido verde oscuro</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-terra"></div>Incluye 2 hayacas + 1 botella masato</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-terra"></div>Tarjeta con historia impresa del producto</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-terra"></div>Ideal para mercados, ferias y fechas especiales</div>
+        <div class="empaque-feature"><div class="empaque-dot dot-terra"></div>Precio sugerido: kit festivo / regalo corporativo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANZAMIENTO -->
+<section id="lanzamiento">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Plan de acción</div>
+    <h2 class="section-title">Estrategia de lanzamiento</h2>
+    <p class="section-desc">8 semanas para construir presencia, comunidad y ventas reales.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot fase1">1</div>
+      <div class="tl-content">
+        <div class="tl-semana">Semanas 1 – 2</div>
+        <div class="tl-fase">Preparación</div>
+        <ul class="tl-steps">
+          <li class="tl-step">Crear perfiles en Instagram, TikTok y WhatsApp Business con @raices.hayacasymasato</li>
+          <li class="tl-step">Preparar 6 piezas de contenido antes del lanzamiento (reels, fotos, historia, empaque)</li>
+          <li class="tl-step">Definir precios, zona de entrega y canales de pedido</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot fase2">2</div>
+      <div class="tl-content">
+        <div class="tl-semana">Semanas 3 – 4</div>
+        <div class="tl-fase">Lanzamiento suave</div>
+        <ul class="tl-steps">
+          <li class="tl-step">Publicar primer reel con música llanera: "Esto sí sabe a Colombia."</li>
+          <li class="tl-step">Enviar 10 kits combo a personas influyentes locales a cambio de reseña honesta</li>
+          <li class="tl-step">Participar en mercado campesino o feria local con stand mínimo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot fase3">3</div>
+      <div class="tl-content">
+        <div class="tl-semana">Semanas 5 – 6</div>
+        <div class="tl-fase">Crecimiento</div>
+        <ul class="tl-steps">
+          <li class="tl-step">Activar pauta pagada en Instagram y Facebook (COP 50.000–100.000 /semana)</li>
+          <li class="tl-step">Lanzar promo: "Compra 4 hayacas y el masato va a mitad de precio"</li>
+          <li class="tl-step">Publicar 1 video semanal tipo "Sabías que…" sobre hayacas o masato</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot fase4">4</div>
+      <div class="tl-content">
+        <div class="tl-semana">Semanas 7 – 8</div>
+        <div class="tl-fase">Consolidación</div>
+        <ul class="tl-steps">
+          <li class="tl-step">Crear lista de clientes frecuentes en WhatsApp con aviso semanal de producción</li>
+          <li class="tl-step">Acercarse a 2–3 restaurantes o tiendas gourmet para distribución consignada</li>
+          <li class="tl-step">Evaluar métricas: ventas, seguidores, alcance orgánico y ajustar estrategia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES -->
+<section id="redes">
+  <div class="redes-inner">
+    <div>
+      <div class="section-eyebrow reveal">Redes sociales</div>
+      <h2 class="section-title reveal">Perfil &amp; contenido</h2>
+      <p class="section-desc reveal">Presencia auténtica, cercana y con identidad colombiana en cada publicación.</p>
+      <div class="hashtags-wrap reveal">
+        <span class="hashtag">#CocinaColombiana</span>
+        <span class="hashtag">#HayacasArtesanales</span>
+        <span class="hashtag">#Masato</span>
+        <span class="hashtag">#RaicesCocina</span>
+        <span class="hashtag">#HechoEnColombia</span>
+        <span class="hashtag">#ComidaTradicional</span>
+        <span class="hashtag">#CocinaViva</span>
+        <span class="hashtag">#LoNuestroNosUne</span>
+      </div>
+    </div>
+    <div>
+      <div class="insta-card reveal">
+        <div class="insta-header">
+          <div class="insta-avatar"><span class="ms" style="font-size:26px;color:var(--verde-hoja)">eco</span></div>
+          <div>
+            <div class="insta-name">Raíces · Cocina viva</div>
+            <div class="insta-handle">@raices.hayacasymasato</div>
+          </div>
+        </div>
+        <p class="insta-bio">
+          <span class="ms" style="font-size:15px;color:var(--verde-hoja)">eco</span> Hayacas y masato artesanal colombiano<br>
+          Hecho en hoja · Heredado en sabor<br>
+          <span class="ms" style="font-size:15px;color:var(--terracota)">location_on</span> Colombia · Pedidos por WhatsApp
+        </p>
+        <a href="#contacto" class="insta-link">Hacer pedido <span class="ms" style="font-size:14px">arrow_forward</span></a>
+        <div class="insta-stats">
+          <div><span class="insta-stat-num ms" style="font-size:22px;color:var(--verde-hoja)">videocam</span><span class="insta-stat-label">Proceso real</span></div>
+          <div><span class="insta-stat-num ms" style="font-size:22px;color:var(--verde-hoja)">auto_stories</span><span class="insta-stat-label">Historia viva</span></div>
+          <div><span class="insta-stat-num ms" style="font-size:22px;color:var(--verde-hoja)">favorite</span><span class="insta-stat-label">Comunidad</span></div>
+        </div>
+      </div>
+      <div class="redes-contenidos" style="margin-top:1rem">
+        <div class="redes-item reveal">
+          <div class="redes-num"><span class="ms" style="font-size:20px">videocam</span></div>
+          <div>
+            <div class="redes-item-title">Proceso en video</div>
+            <div class="redes-item-desc">Doblar la hoja, verter el relleno, amarrar. Sin filtros — auténtico.</div>
+          </div>
+        </div>
+        <div class="redes-item reveal">
+          <div class="redes-num"><span class="ms" style="font-size:20px">history_edu</span></div>
+          <div>
+            <div class="redes-item-title">Historia del producto</div>
+            <div class="redes-item-desc">¿De dónde viene la hayaca? ¿Qué es el bijao? Educa y enorgullece.</div>
+          </div>
+        </div>
+        <div class="redes-item reveal">
+          <div class="redes-num"><span class="ms" style="font-size:20px">record_voice_over</span></div>
+          <div>
+            <div class="redes-item-title">Testimonios reales</div>
+            <div class="redes-item-desc">Clientes hablando con su propia voz. Lo más poderoso que existe.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contacto-inner">
+    <div class="section-eyebrow reveal" style="justify-content:center">Hacer pedido</div>
+    <h2 class="section-title reveal">Contáctanos</h2>
+    <p class="section-desc reveal">¿Quieres hayacas y masato en tu mesa? Escríbenos y te respondemos enseguida.</p>
+    <div class="contacto-form reveal">
+      <div class="form-group">
+        <label class="form-label"><span class="ms" style="font-size:15px;vertical-align:-3px;margin-right:5px">person</span>Nombre</label>
+        <input class="form-input" type="text" placeholder="Tu nombre"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="ms" style="font-size:15px;vertical-align:-3px;margin-right:5px">whatsapp</span>WhatsApp / Teléfono</label>
+        <input class="form-input" type="tel" placeholder="+57 300 000 0000"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="ms" style="font-size:15px;vertical-align:-3px;margin-right:5px">location_on</span>Ciudad</label>
+        <input class="form-input" type="text" placeholder="¿Dónde estás?"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label"><span class="ms" style="font-size:15px;vertical-align:-3px;margin-right:5px">shopping_bag</span>Tu pedido</label>
+        <textarea class="form-textarea" placeholder="Ej: 4 hayacas de pollo + 2 masatos para el sábado"></textarea>
+      </div>
+      <button class="form-btn" onclick="enviarPedido()"><span class="ms" style="font-size:18px;vertical-align:-4px;margin-right:6px">send</span>Enviar pedido</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RAÍ<span>CES</span></div>
+  <p class="footer-tagline">"Sabor que hereda, tradición que une."</p>
+  <div class="footer-social">
+    <a href="#" aria-label="Instagram" title="Instagram"><span class="ms" style="font-size:20px;color:rgba(255,255,255,.8)">photo_camera</span></a>
+    <a href="#" aria-label="Facebook" title="Facebook"><span class="ms" style="font-size:20px;color:rgba(255,255,255,.8)">thumb_up</span></a>
+    <a href="#" aria-label="TikTok" title="TikTok"><span class="ms" style="font-size:20px;color:rgba(255,255,255,.8)">music_note</span></a>
+    <a href="#" aria-label="WhatsApp" title="WhatsApp"><span class="ms" style="font-size:20px;color:rgba(255,255,255,.8)">chat_bubble</span></a>
+  </div>
+  <p class="footer-copy">© 2025 Raíces · Hayacas &amp; Masato · Colombia · Lo nuestro nos une</p>
+</footer>
+
+<script>
+// Nav scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile nav
+function toggleNav() {
+  const open = document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('burgerIcon').textContent = open ? 'close' : 'menu';
+}
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 1800;
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased);
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.resena-stats').forEach(el => statObserver.observe(el));
+
+// Form submit
+function enviarPedido() {
+  const btn = document.querySelector('.form-btn');
+  btn.innerHTML = '<span class="ms" style="font-size:18px;vertical-align:-4px;margin-right:6px">check_circle</span>Pedido recibido — te contactamos pronto';
+  btn.style.background = 'var(--verde-hoja)';
+  setTimeout(() => {
+    btn.innerHTML = '<span class="ms" style="font-size:18px;vertical-align:-4px;margin-right:6px">send</span>Enviar pedido';
+    btn.style.background = '';
+  }, 3000);
+}
+
+// Smooth link close on mobile
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
