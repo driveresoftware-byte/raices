@@ -1192,7 +1192,7 @@ footer {
   .hero-right { min-height: 50vh; }
   .hero-left { padding: 3rem 2rem; }
   #productos, #resena, #audiencia, #eslogan-band,
-  #empaque, #lanzamiento, #redes, #contacto, footer { padding: 4rem 1.5rem; }
+  #logo-significado, #empaque, #lanzamiento, #redes, #contacto, footer { padding: 4rem 1.5rem; }
   .resena-inner, .redes-inner { grid-template-columns: 1fr; gap: 2rem; }
   .nav-links { display: none; }
   .nav-links.open {
@@ -1227,10 +1227,10 @@ footer {
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#productos">Productos</a></li>
     <li><a href="#resena">Nuestra historia</a></li>
     <li><a href="#logo-significado">Nuestro logo</a></li>
     <li><a href="#empaque">Empaque</a></li>
+    <li><a href="#productos">Productos</a></li>
     <li><a href="#lanzamiento">Lanzamiento</a></li>
     <li><a href="#redes">Redes</a></li>
     <li><a href="#contacto" class="nav-cta">Hacer pedido</a></li>
@@ -1248,8 +1248,8 @@ footer {
     <div class="hero-tagline-sub">Hayacas &amp; Masato</div>
     <p class="hero-slogan">"Sabor que hereda, tradición que une."</p>
     <div class="hero-btns">
-      <a href="#productos" class="btn-primary">Ver productos <span class="ms" style="font-size:18px">arrow_forward</span></a>
-      <a href="#resena" class="btn-secondary"><span class="ms" style="font-size:18px">menu_book</span> Nuestra historia</a>
+      <a href="#resena" class="btn-primary">Nuestra historia <span class="ms" style="font-size:18px">arrow_forward</span></a>
+      <a href="#productos" class="btn-secondary"><span class="ms" style="font-size:18px">restaurant</span> Ver productos</a>
     </div>
   </div>
   <div class="hero-right">
@@ -1271,126 +1271,6 @@ footer {
       <div class="hero-divider"></div>
       <p class="hero-sub">Elaboradas a mano con recetas ancestrales colombianas. Cada bocado lleva historia, familia y cultura.</p>
     </div>
-  </div>
-</section>
-
-<!-- PRODUCTOS -->
-<section id="productos">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Lo que ofrecemos</div>
-    <h2 class="section-title">Nuestros productos</h2>
-    <p class="section-desc">Hechos con ingredientes locales, envueltos en hoja de bijao y preparados con el cariño de siempre.</p>
-  </div>
-  <div class="productos-grid">
-
-    <!-- HAYACA -->
-    <div class="producto-card reveal">
-      <div class="producto-header hayaca">
-        <div class="producto-tipo">Producto principal</div>
-        <div class="producto-name">Hayaca Artesanal</div>
-      </div>
-      <div class="producto-gallery">
-        <div class="producto-photo">
-          <!-- foto 1: caja kraft, zona superior de hayaca.png (~20%–44% de alto) -->
-          <img src="hayaca.png"
-               alt="Caja kraft con ventana y etiqueta verde Raíces"
-               style="object-position: center 29%"/>
-        </div>
-        <div class="producto-photo">
-          <!-- foto 2: hayaca en hoja, zona media (~47%–70%) -->
-          <img src="hayaca.png"
-               alt="Hayaca envuelta en hoja de bijao sobre tejido natural"
-               style="object-position: center 57%"/>
-        </div>
-        <div class="producto-photo">
-          <!-- foto 3: etiqueta verde, zona inferior (~73%–97%) -->
-          <img src="hayaca.png"
-               alt="Tarjeta verde: Hayaca Artesanal, sin conservantes, hecho a mano"
-               style="object-position: center 86%"/>
-        </div>
-      </div>
-      <div class="producto-body">
-        <p class="producto-desc">Masa de maíz rellena con guiso de res o pollo, envuelta en hoja de bijao y cocida a fuego lento. La tradición en cada amarre.</p>
-        <div class="producto-tags">
-          <span class="producto-tag">Sin conservantes</span>
-          <span class="producto-tag">Hecha a mano</span>
-          <span class="producto-tag">Hoja de bijao</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- MASATO -->
-    <div class="producto-card reveal">
-      <div class="producto-header masato">
-        <div class="producto-tipo">Bebida artesanal</div>
-        <div class="producto-name">Masato 500ml</div>
-      </div>
-      <div class="producto-gallery">
-        <div class="producto-photo">
-          <!-- foto 1: botella completa con cuencos (~20%–44%) -->
-          <img src="masato.png"
-               alt="Botella de vidrio oscuro de masato artesanal con cuenco de arroz"
-               style="object-position: center 29%"/>
-        </div>
-        <div class="producto-photo">
-          <!-- foto 2: etiqueta frontal Masato artesanal de arroz 500ml (~47%–70%) -->
-          <img src="masato.png"
-               alt="Etiqueta frontal de papel texturizado: Masato artesanal de arroz 500ml"
-               style="object-position: center 57%"/>
-        </div>
-        <div class="producto-photo">
-          <!-- foto 3: etiqueta trasera con ingredientes (~73%–97%) -->
-          <img src="masato.png"
-               alt="Reverso etiqueta: fermentado naturalmente, sin alcohol añadido, hecho a mano en Colombia"
-               style="object-position: center 86%"/>
-        </div>
-      </div>
-      <div class="producto-body">
-        <p class="producto-desc">Bebida fermentada naturalmente, dulce y refrescante. Preparada con arroz, piña de fique y panela. Sin alcohol añadido. Hecha a mano en Colombia.</p>
-        <div class="producto-tags">
-          <span class="producto-tag amber">Fermentado natural</span>
-          <span class="producto-tag amber">Sin aditivos</span>
-          <span class="producto-tag amber">Servir frío</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMBO -->
-    <div class="producto-card reveal">
-      <div class="producto-header combo">
-        <div class="producto-tipo">Kit regalo <span class="producto-estrella">★</span></div>
-        <div class="producto-name">Combo Raíces</div>
-      </div>
-      <div class="producto-gallery">
-        <div class="producto-photo">
-          <!-- foto 1: caja verde abierta con masato y hayaca (~20%–44%) -->
-          <img src="combo.png"
-               alt="Caja verde abierta con botella masato y hayaca sobre viruta natural"
-               style="object-position: center 29%"/>
-        </div>
-        <div class="producto-photo">
-          <!-- foto 2: kit sobre mesa con frase raíces que nutren tradiciones (~47%–70%) -->
-          <img src="combo.png"
-               alt="Kit Raíces que nutren tradiciones: masato, hayaca y cuenco de arroz"
-               style="object-position: center 57%"/>
-        </div>
-        <div class="producto-photo">
-          <!-- foto 3: etiqueta kraft gracias por apoyar lo nuestro (~73%–97%) -->
-          <img src="combo.png"
-               alt="Etiqueta kraft: Gracias por apoyar lo nuestro, hecho a mano en Colombia"
-               style="object-position: center 86%"/>
-        </div>
-      </div>
-      <div class="producto-body">
-        <p class="producto-desc">2 hayacas + 1 botella de masato en caja verde de regalo. La experiencia Raíces completa, perfecta para compartir, ferias y ocasiones especiales.</p>
-        <div class="producto-tags">
-          <span class="producto-tag terra">Caja regalo</span>
-          <span class="producto-tag terra">Ideal para ferias</span>
-          <span class="producto-tag terra">Tarjeta de origen</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1532,47 +1412,6 @@ footer {
   </div>
 </section>
 
-<!-- AUDIENCIA -->
-<section id="audiencia">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Cómo conectamos</div>
-    <h2 class="section-title">Con nuestra audiencia</h2>
-  </div>
-  <div class="audiencia-grid">
-    <div class="audiencia-card reveal">
-      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">auto_stories</span></div>
-      <div class="audiencia-title">Contamos nuestras raíces</div>
-      <p class="audiencia-desc">Compartimos historias sobre el origen de las hayacas y el masato, destacando su valor cultural y familiar.</p>
-    </div>
-    <div class="audiencia-card reveal">
-      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">phone_iphone</span></div>
-      <div class="audiencia-title">Presencia digital auténtica</div>
-      <p class="audiencia-desc">Contenido fresco y cercano en redes, mostrando el proceso, la tradición y los momentos que se viven.</p>
-    </div>
-    <div class="audiencia-card reveal">
-      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">groups</span></div>
-      <div class="audiencia-title">Experiencias locales</div>
-      <p class="audiencia-desc">Participamos en ferias, eventos y festivales para que más personas vivan la experiencia Raíces en comunidad.</p>
-    </div>
-    <div class="audiencia-card reveal">
-      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">park</span></div>
-      <div class="audiencia-title">Sostenibilidad y orgullo</div>
-      <p class="audiencia-desc">Ingredientes locales y empaques amigables con el medio ambiente, aportando al desarrollo de nuestra comunidad.</p>
-    </div>
-    <div class="audiencia-card reveal">
-      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">handshake</span></div>
-      <div class="audiencia-title">Cercanía y calidez</div>
-      <p class="audiencia-desc">Atendemos con calidez y construimos relaciones reales, porque para nosotros cada cliente es parte de la familia.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ESLOGAN BAND -->
-<section id="eslogan-band">
-  <p class="eslogan-main reveal">"Hecho como en <em>casa.</em>"</p>
-  <p class="eslogan-sub-band reveal">Lo nuestro nos une · @raices.hayacasymasato</p>
-</section>
-
 <!-- EMPAQUE -->
 <section id="empaque">
   <div class="section-header reveal">
@@ -1630,6 +1469,132 @@ footer {
       </div>
     </div>
   </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Lo que ofrecemos</div>
+    <h2 class="section-title">Nuestros productos</h2>
+    <p class="section-desc">Hechos con ingredientes locales, envueltos en hoja de bijao y preparados con el cariño de siempre.</p>
+  </div>
+  <div class="productos-grid">
+
+    <!-- HAYACA -->
+    <div class="producto-card reveal">
+      <div class="producto-header hayaca">
+        <div class="producto-tipo">Producto principal</div>
+        <div class="producto-name">Hayaca Artesanal</div>
+      </div>
+      <div class="producto-gallery">
+        <div class="producto-photo">
+          <!-- foto 1: caja kraft, zona superior de hayaca.png (~20%–44% de alto) -->
+          <img src="hayaca.png"
+               alt="Caja kraft con ventana y etiqueta verde Raíces"
+               style="object-position: center 29%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 2: hayaca en hoja, zona media (~47%–70%) -->
+          <img src="hayaca.png"
+               alt="Hayaca envuelta en hoja de bijao sobre tejido natural"
+               style="object-position: center 57%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 3: etiqueta verde, zona inferior (~73%–97%) -->
+          <img src="hayaca.png"
+               alt="Tarjeta verde: Hayaca Artesanal, sin conservantes, hecho a mano"
+               style="object-position: center 86%"/>
+        </div>
+      </div>
+      <div class="producto-body">
+        <p class="producto-desc">Masa de maíz rellena con guiso de res o pollo, envuelta en hoja de bijao y cocida a fuego lento. La tradición en cada amarre.</p>
+        <div class="producto-tags">
+          <span class="producto-tag">Sin conservantes</span>
+          <span class="producto-tag">Hecha a mano</span>
+          <span class="producto-tag">Hoja de bijao</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MASATO -->
+    <div class="producto-card reveal">
+      <div class="producto-header masato">
+        <div class="producto-tipo">Bebida artesanal</div>
+        <div class="producto-name">Masato 500ml</div>
+      </div>
+      <div class="producto-gallery">
+        <div class="producto-photo">
+          <!-- foto 1: botella completa con cuencos (~20%–44%) -->
+          <img src="masato.png"
+               alt="Botella de vidrio oscuro de masato artesanal con cuenco de arroz"
+               style="object-position: center 29%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 2: etiqueta frontal Masato artesanal de arroz 500ml (~47%–70%) -->
+          <img src="masato.png"
+               alt="Etiqueta frontal de papel texturizado: Masato artesanal de arroz 500ml"
+               style="object-position: center 57%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 3: etiqueta trasera con ingredientes (~73%–97%) -->
+          <img src="masato.png"
+               alt="Reverso etiqueta: fermentado naturalmente, sin alcohol añadido, hecho a mano en Colombia"
+               style="object-position: center 86%"/>
+        </div>
+      </div>
+      <div class="producto-body">
+        <p class="producto-desc">Bebida fermentada naturalmente, dulce y refrescante. Preparada con arroz, piña de fique y panela. Sin alcohol añadido. Hecha a mano en Colombia.</p>
+        <div class="producto-tags">
+          <span class="producto-tag amber">Fermentado natural</span>
+          <span class="producto-tag amber">Sin aditivos</span>
+          <span class="producto-tag amber">Servir frío</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMBO -->
+    <div class="producto-card reveal">
+      <div class="producto-header combo">
+        <div class="producto-tipo">Kit regalo <span class="producto-estrella">★</span></div>
+        <div class="producto-name">Combo Raíces</div>
+      </div>
+      <div class="producto-gallery">
+        <div class="producto-photo">
+          <!-- foto 1: caja verde abierta con masato y hayaca (~20%–44%) -->
+          <img src="combo.png"
+               alt="Caja verde abierta con botella masato y hayaca sobre viruta natural"
+               style="object-position: center 29%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 2: kit sobre mesa con frase raíces que nutren tradiciones (~47%–70%) -->
+          <img src="combo.png"
+               alt="Kit Raíces que nutren tradiciones: masato, hayaca y cuenco de arroz"
+               style="object-position: center 57%"/>
+        </div>
+        <div class="producto-photo">
+          <!-- foto 3: etiqueta kraft gracias por apoyar lo nuestro (~73%–97%) -->
+          <img src="combo.png"
+               alt="Etiqueta kraft: Gracias por apoyar lo nuestro, hecho a mano en Colombia"
+               style="object-position: center 86%"/>
+        </div>
+      </div>
+      <div class="producto-body">
+        <p class="producto-desc">2 hayacas + 1 botella de masato en caja verde de regalo. La experiencia Raíces completa, perfecta para compartir, ferias y ocasiones especiales.</p>
+        <div class="producto-tags">
+          <span class="producto-tag terra">Caja regalo</span>
+          <span class="producto-tag terra">Ideal para ferias</span>
+          <span class="producto-tag terra">Tarjeta de origen</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ESLOGAN BAND -->
+<section id="eslogan-band">
+  <p class="eslogan-main reveal">"Hecho como en <em>casa.</em>"</p>
+  <p class="eslogan-sub-band reveal">Lo nuestro nos une · @raices.hayacasymasato</p>
 </section>
 
 <!-- LANZAMIENTO -->
@@ -1753,6 +1718,41 @@ footer {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCIA -->
+<section id="audiencia">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Cómo conectamos</div>
+    <h2 class="section-title">Con nuestra audiencia</h2>
+  </div>
+  <div class="audiencia-grid">
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">auto_stories</span></div>
+      <div class="audiencia-title">Contamos nuestras raíces</div>
+      <p class="audiencia-desc">Compartimos historias sobre el origen de las hayacas y el masato, destacando su valor cultural y familiar.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">phone_iphone</span></div>
+      <div class="audiencia-title">Presencia digital auténtica</div>
+      <p class="audiencia-desc">Contenido fresco y cercano en redes, mostrando el proceso, la tradición y los momentos que se viven.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">groups</span></div>
+      <div class="audiencia-title">Experiencias locales</div>
+      <p class="audiencia-desc">Participamos en ferias, eventos y festivales para que más personas vivan la experiencia Raíces en comunidad.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">park</span></div>
+      <div class="audiencia-title">Sostenibilidad y orgullo</div>
+      <p class="audiencia-desc">Ingredientes locales y empaques amigables con el medio ambiente, aportando al desarrollo de nuestra comunidad.</p>
+    </div>
+    <div class="audiencia-card reveal">
+      <div class="audiencia-icon-wrap"><span class="ms" style="font-size:28px;color:var(--verde-hoja)">handshake</span></div>
+      <div class="audiencia-title">Cercanía y calidez</div>
+      <p class="audiencia-desc">Atendemos con calidez y construimos relaciones reales, porque para nosotros cada cliente es parte de la familia.</p>
     </div>
   </div>
 </section>
